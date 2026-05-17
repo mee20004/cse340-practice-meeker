@@ -43,10 +43,16 @@ app.get('/about', (req, res) => {
 });
 
 
+
+import { facultyListPage, facultyDetailPage } from "./src/controllers/faculty/faculty.js";
+
 app.get('/products', (req, res) => {
     const title = 'Our Products';
     res.render('products', { title });
 });
+
+app.get('/faculty', facultyListPage);
+app.get('/faculty/:facultyId', facultyDetailPage);
 
 app.get('/student', (req, res) => {
     const student = {
